@@ -4,7 +4,7 @@ let buttons = document.querySelectorAll("button");
 let string = "";
 
 buttons.forEach(button => {
-   button.addEventListener('click', (e) => {
+   button.addEventListener('click', (e) => { 
       if(e.target.innerHTML === "=") {
          string = eval(string);
          inputBox.value = string;
@@ -27,4 +27,13 @@ buttons.forEach(button => {
    
       
    })
-})
+});
+
+document.addEventListener("keydown", (e)=> {
+   if(e.key === "Enter") {
+      e.preventDefault();
+      string = eval(string);
+      inputBox.value = string;
+      string = "";
+   }
+});
